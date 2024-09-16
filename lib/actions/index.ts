@@ -1,3 +1,4 @@
+
 "use server"
 
 import { revalidatePath } from "next/cache";
@@ -5,6 +6,9 @@ import Product from "../models/product.model";
 import { scrapeProduct } from "../scraper/index";
 import { connectToDB } from "../scraper/mongoose";
 import { getAveragePrice, getHighestPrice, getLowestPrice } from "../utils";
+import { redirect } from "next/navigation";
+import { User } from "@/types";
+import { generateEmailBody, sendEmail } from "../nodemailer";
 
 export async function scrapeAndStoreProduct(productUrl:string) {
     if(!productUrl) return;
@@ -16,8 +20,8 @@ export async function scrapeAndStoreProduct(productUrl:string) {
         console.log(scrapedProduct);
         
         if(!scrapedProduct) return;
-        
         let product = scrapedProduct;
+        
 
         const existingProduct = await Product.findOne({url: scrapedProduct.url});
 
@@ -66,3 +70,54 @@ export async function getProductById(productId: string){
         console.log(error);
     }
 }
+
+export async function redirectKey(productUrl: string){
+    try {
+
+        connectToDB();
+
+        const existingProduct = await Product.findOne({url: productUrl});
+       
+        const stringId = existingProduct._id;
+        let keyy = stringId.toString();
+
+        // console.log(keyy);
+        
+         if(!keyy) return null;
+
+          return keyy;
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+
+
+
+export async function addUserEmailToProduct(
+    productId: string, userEmail: string
+){
+    try {
+        const product = await Product.findById(productId);
+        if(!product) return;
+
+        const userExists = product.users.some((user: User) => user.email === userEmail)
+
+        if(!userExists){
+            product.users.push({ email: userEmail });
+            
+            await product.save();
+
+            const emailContent: any = await generateEmailBody(product, 'WELCOME');
+
+            await sendEmail(emailContent, [userEmail]);
+
+        }
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+

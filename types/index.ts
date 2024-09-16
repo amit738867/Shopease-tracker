@@ -8,22 +8,16 @@ export type PriceHistoryItem = {
   
   export type Product = {
     _id?: string;
-    url: string;
-    currency: string;
-    imgURL: string;
-    title: string;
+    url: string | "";
+    title: string | "";
     currentPrice: number;
     originalPrice: number;
+    discount: string;
+    imgURL: string | "";
     priceHistory: PriceHistoryItem[] | [];
-    highestPrice: number;
     lowestPrice: number;
+    highestPrice: number;
     averagePrice: number;
-    discount: number;
-    description: string;
-    category: string;
-    reviewsCount: number;
-    stars: number;
-    isOutOfStock: Boolean;
     users?: User[];
   };
   

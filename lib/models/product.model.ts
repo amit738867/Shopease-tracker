@@ -5,16 +5,16 @@ const productSchema = new mongoose.Schema({
     title:{ type:String, required: true},
     currentPrice:{ type:Number, required: true },
     originalPrice:{ type:Number, required: true },
-    discount:{ type:String},
+    discount:{ type:Number},
     imgURL:{ type:String, required: true },
-    lowestPrice:{ type:Number },
-    highestPrice:{ type:Number },
-    averagePrice:{ type:Number },
     priceHistory:[ {
         price: {type: Number, required:true},
         date: {type: Date, default: Date.now}
         }, 
     ],
+    lowestPrice:{ type:Number },
+    highestPrice:{ type:Number },
+    averagePrice:{ type:Number },
     users:[
         {email : {type: String, required: true}}
     ], dafault: [],

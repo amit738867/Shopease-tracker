@@ -49,6 +49,7 @@ export async function scrapeProduct(url: string) {
             
             
             const fetchedDiscount = document.querySelector('.a-size-large.a-color-price.savingPriceOverride.aok-align-center.reinventPriceSavingsPercentageMargin.savingsPercentage');
+            
 
             const fetchedPriceOrigin = document.querySelector('.a-size-small.aok-offscreen');
             const ftt: any = fetchedPriceOrigin?.textContent;
