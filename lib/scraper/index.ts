@@ -9,7 +9,10 @@ let browser: Browser | null = null;
 
 async function getBrowserInstance() {
     if (!browser) {
-        browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+        browser = await puppeteer.launch({
+            executablePath: '/google/idx/builtins/bin/chromium-browser',
+            headless: 'shell',
+        args: ['--enable-gpu'], });
     }
     return browser;
 }
