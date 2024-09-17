@@ -42,8 +42,6 @@ export async function scrapeAndStoreProduct(productUrl:string) {
         }
 
         
-        scrapedProduct.priceHistory.push({ price: scrapedProduct.currentPrice, date: new Date() });
-        scrapedProduct.priceHistory.push({ price: scrapedProduct.originalPrice, date: new Date() });
 
 
         const newProduct = await Product.findOneAndUpdate({url: scrapedProduct.url}

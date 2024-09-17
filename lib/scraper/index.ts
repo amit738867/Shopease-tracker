@@ -30,7 +30,7 @@ export async function scrapeProduct(url: string) {
             originalPrice: Number(result),
             discount: Number(re8),
             imgURL: fetchedImg,
-            priceHistory: [],
+            priceHistory: [{ price: Number(re2) , date: new Date() }, { price: Number(result) , date: new Date()}],
             lowestPrice: Number(re2) || Number(result),
             highestPrice: Number(result) || Number(re2),
             averagePrice: Number(re2) || Number(result),
