@@ -30,7 +30,7 @@ export async function scrapeProduct(url: string) {
             originalPrice: Number(result),
             discount: Number(re8),
             imgURL: fetchedImg,
-            priceHistory: [Number(re2), Number(result)],
+            priceHistory: [],
             lowestPrice: Number(re2) || Number(result),
             highestPrice: Number(result) || Number(re2),
             averagePrice: Number(re2) || Number(result),
@@ -40,6 +40,6 @@ export async function scrapeProduct(url: string) {
         return data;
 
     } catch (error: any) {
-        throw new Error(`Failed to scrape Product: ${error.message}`);
+        throw new Error(`Failed to scrape Product: ${error}`);
     }
 }

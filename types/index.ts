@@ -8,18 +8,19 @@ export type PriceHistoryItem = {
   
   export type Product = {
     _id?: string;
-    url: string | "";
-    title: string | "";
+    url: string;
+    title: string;
     currentPrice: number;
     originalPrice: number;
-    discount: string;
-    imgURL: string | "";
-    priceHistory: PriceHistoryItem[] | [];
-    lowestPrice: number;
-    highestPrice: number;
-    averagePrice: number;
-    users?: User[];
+    discount?: number;
+    imgURL: string;
+    priceHistory: PriceHistoryItem[];
+    lowestPrice?: number;
+    highestPrice?: number;
+    averagePrice?: number;
+    users?: { email: string }[];
   };
+  
   
   export type NotificationType =
     | "WELCOME"
