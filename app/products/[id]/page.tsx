@@ -71,7 +71,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               ₹ {formatNumber(product.currentPrice)}
               </p>
               <p className="px-2 text-red-500 text-xl font-bold">
-                {product.discount}
+                -{product.discount}%
               </p>
             </div>
               <p className="text-[21px] text-black opacity-50 line-through">
