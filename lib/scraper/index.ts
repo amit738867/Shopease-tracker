@@ -20,7 +20,7 @@ export async function scrapeProduct(url: string) {
         
         const fetchedDiscount = $('.a-size-large.a-color-price.savingPriceOverride.aok-align-center.reinventPriceSavingsPercentageMargin.savingsPercentage').text();
         const re8 = parseFloat(fetchedDiscount.replace('%', '').replace('-', ''));
-        const fetchedPriceOrigin = $('.a-size-small.aok-offscreen').text();
+        const fetchedPriceOrigin = $('.a-size-small.aok-offscreen').first().text();
         const re = fetchedPriceOrigin.match(/[\d]+/g)?.join('') || '';
         const result = re.slice(0, -2);
 
