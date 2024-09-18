@@ -23,7 +23,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
   return (
     <div className="product-container">
-      <div className="flex gap-28 xl:flex-row flex-col">
+      <div className="flex gap-10 xl:flex-row flex-col">
         <div className="product-image">
           <Image 
             src={product.imgURL}
@@ -78,6 +78,22 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               ₹ {formatNumber(product.originalPrice)}
               </p>
             </div>
+
+            <div>
+                  <button className="btn w-fit mx-auto flex items-center justify-center gap-3 xl:min-w-[200px] min-w-[150px]">
+                    <Image 
+                      src="/assets/icons/bag.svg"
+                      alt="check"
+                      width={22}
+                      height={22}
+                    />
+
+                    <Link href={product.url} className="text-base text-white">
+                      Buy Now
+                    </Link>
+                  </button>
+                
+            </div>
             
           </div>
 
@@ -107,23 +123,23 @@ const ProductDetails = async ({ params: { id } }: Props) => {
           </div>
 
           <Modal productId={id} />
+                {/* <div className="flex flex-col gap-16">
+                  <button className="btn w-fit mx-auto flex items-center justify-center gap-3 min-w-[200px]">
+                    <Image 
+                      src="/assets/icons/bag.svg"
+                      alt="check"
+                      width={22}
+                      height={22}
+                    />
+
+                    <Link href="/" className="text-base text-white">
+                      Buy Now
+                    </Link>
+                  </button>
+                </div> */}
         </div>
       </div>
 
-      <div className="flex flex-col gap-16">
-        <button className="btn w-fit mx-auto flex items-center justify-center gap-3 min-w-[200px]">
-          <Image 
-            src="/assets/icons/bag.svg"
-            alt="check"
-            width={22}
-            height={22}
-          />
-
-          <Link href="/" className="text-base text-white">
-            Buy Now
-          </Link>
-        </button>
-      </div>
 
     </div>
   )
