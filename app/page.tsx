@@ -6,8 +6,8 @@ import React from 'react'
 const Home = () => {
   return (
     <>
-      <section className='px-6 md:px-20 py-9 border-2 border-red-500'>
-        <div className='flex max-xl:flex-col gap-16'>
+      <section className='px-6 md:px-20 py-2 border-2 border-red-500'>
+        <div className='flex max-xl:flex-col gap-9'>
           <div className='flex flex-col justify-center'>
             <p className='small-text'>
               Smart Shopping Starts Here:
@@ -25,8 +25,8 @@ const Home = () => {
                 </span>
             </h1>
 
-            <p className='mt-6'>
-              Powerful, self-serve product and growth
+            <p className='hidden md:block mt-6'>
+              Powerful, self-serve product and growth <br />
               analytics to help you convert, engage and
               retain more.
             </p>
