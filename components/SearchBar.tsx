@@ -10,6 +10,7 @@ const isValidUrl = (url: string) => {
         const hostname = parseURL.hostname;
 
         if (hostname.includes('amazon.in') ||
+            hostname.includes('amzn.in') ||
             hostname.includes('flipkart.com') ||
             hostname.includes('myntra.com')) {
             return true;
