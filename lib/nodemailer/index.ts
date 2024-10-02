@@ -60,7 +60,7 @@ export async function generateEmailBody(
           <h4>Hey, ${product.title} has reached its lowest price ever!!</h4>
           <p>Grab the product <a href="${product.url}" target="_blank" rel="noopener noreferrer">here</a> now.</p>
         </div>
-      `;
+      `; 
       break;
 
     case Notification.THRESHOLD_MET:
@@ -83,14 +83,14 @@ export async function generateEmailBody(
 const transporter = nodemailer.createTransport({
   service: 'hotmail',
   auth: {
-    user: 'shopease_1@outlook.com',
+    user: 'shopease_base@outlook.com',
     pass: process.env.EMAIL_PASSWORD,
   },
 })
 
 export const sendEmail = async (emailContent: EmailContent, sendTo: string[]): Promise<void> => {
   const mailOptions = {
-    from: 'shopease_1@outlook.com',
+    from: 'shopease_base@outlook.com',
     to: sendTo,
     html: emailContent.body,
     subject: emailContent.subject,
