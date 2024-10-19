@@ -140,9 +140,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
         </div>
       </div>
   
-      <div style="height: 100px; background-color: lightblue;">
-  This div has a height of 100px.
-</div>
+    
 
     </div>
   )
