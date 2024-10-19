@@ -140,8 +140,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
         </div>
       </div>
 
-      <div classname='h-32' >
-      </div>
+      
     </div>
   )
 }
